@@ -68,7 +68,7 @@ export default function ArticleGridPage({ data }) {
         </div>
         {articleGrids}
       </div>
-      <Footer developers="Karl Huang" copyrightYear={2018} />
+      <Footer developers="Dustin Newman" copyrightYear={2018} />
     </>
   )
 }
