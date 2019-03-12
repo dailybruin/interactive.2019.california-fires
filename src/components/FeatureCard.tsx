@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { css } from 'react-emotion'
+import { Link } from 'gatsby'
 
 interface FeatureCardProps {
   name: string
@@ -10,69 +11,71 @@ interface FeatureCardProps {
 export default class FeatureCard extends React.Component<FeatureCardProps> {
   public render() {
     return (
-      <div
-        className={css`
-          position: relative;
-          text-align: center;
-        `}
-      >
+      <Link to={`feature/${this.props.name.split(' ')[0]}`}>
         <div
           className={css`
             position: relative;
-            min-height: 4em;
-            &:after {
-              content: '';
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              top: 0;
-              left: 0;
-              background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-            }
+            text-align: center;
           `}
         >
-          <img
+          <div
             className={css`
-              width: 100%;
-              vertical-align: top;
-              max-width: 900px;
-            `}
-            src={this.props.imageURL}
-            alt={this.props.blurb}
-          />
-        </div>
-        <div
-          className={css`
-            position: absolute;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-          `}
-        >
-          <p
-            className={css`
-              font-size: 1.3rem;
-              font-weight: bold;
-              text-transform: uppercase;
-              margin-bottom: 0;
-            `}
-          >
-            {this.props.name}
-          </p>
-          <p
-            className={css`
-              font-size: 1rem;
-              &:before {
+              position: relative;
+              min-height: 4em;
+              &:after {
                 content: '';
-                display: block;
-                border-top: 1px solid white;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
               }
             `}
           >
-            {this.props.blurb}
-          </p>
+            <img
+              className={css`
+                width: 100%;
+                vertical-align: top;
+                max-width: 900px;
+              `}
+              src={this.props.imageURL}
+              alt={this.props.blurb}
+            />
+          </div>
+          <div
+            className={css`
+              position: absolute;
+              top: 2rem;
+              left: 50%;
+              transform: translateX(-50%);
+            `}
+          >
+            <p
+              className={css`
+                font-size: 1.3rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: 0;
+              `}
+            >
+              {this.props.name}
+            </p>
+            <p
+              className={css`
+                font-size: 1rem;
+                &:before {
+                  content: '';
+                  display: block;
+                  border-top: 1px solid white;
+                }
+              `}
+            >
+              {this.props.blurb}
+            </p>
+          </div>
         </div>
-      </div>
+      </Link>
     )
   }
 }

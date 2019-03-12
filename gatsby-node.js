@@ -10,6 +10,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const mapResponse = await fetch(mapURL)
   const mapJson = await mapResponse.json()
   const { data } = mapJson
+  // create places
   data['data.aml'].places.forEach(place => {
     return graphql(`
       {
@@ -26,6 +27,32 @@ exports.createPages = async ({ graphql, actions }) => {
         context: {
           place: place.place,
           features: place.features,
+        },
+      })
+    })
+  })
+  // create features
+  data['data.aml'].features.forEach(feature => {
+    return graphql(`
+      {
+        feature(title: {eq: "${feature.title}"}) {
+          title
+          description
+          images {
+            imageURL
+            caption
+          }
+        }
+      }
+    `).then(_ => {
+      let firstWord = feature.title.split(' ')[0]
+      createPage({
+        path: `feature/${firstWord}`,
+        component: path.resolve(`./src/templates/feature.tsx`),
+        context: {
+          title: feature.title,
+          description: feature.description,
+          images: feature.images,
         },
       })
     })
