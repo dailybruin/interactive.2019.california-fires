@@ -12,7 +12,7 @@ const Stacked_h3 = ({ children }) => (
       font-size: 1.2rem;
       display: inline-block;
       font-weight: normal;
-      margin-right: 2rem;
+      margin-left: 2rem;
     `}
   >
     {children}
@@ -34,8 +34,9 @@ export default class Header extends React.Component<HeaderProps> {
           left: 0px;
           right: 0px;
           background: black;
-          padding: 2em 0;
+          padding: 2em 2em;
           width: 100vw;
+          z-index: 10000;
         `}
       >
         <Link to="/">

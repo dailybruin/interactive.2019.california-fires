@@ -59,30 +59,36 @@ const FeatureTemplate = ({ data, pageContext }) => {
       <div
         className={css`
           text-align: center;
-          padding-top: 5rem;
-          padding-bottom: 5rem;
         `}
       >
-        <h1
+        <div
           className={css`
-            font-size: 4rem;
-            -webkit-font-smoothing: antialiased;
+            text-align: center;
+            padding-top: 5rem;
+            padding-bottom: 5rem;
           `}
         >
-          {pageContext.title}
-        </h1>
-        <p
-          className={css`
-            font-size: 1.6rem;
-            margin: 1.45rem auto;
-            width: 80%;
-            min-width: 350px;
-          `}
-        >
-          {pageContext.description}
-        </p>
+          <h1
+            className={css`
+              font-size: 4rem;
+              -webkit-font-smoothing: antialiased;
+            `}
+          >
+            {pageContext.title}
+          </h1>
+          <p
+            className={css`
+              font-size: 1.6rem;
+              margin: 1.45rem auto;
+              width: 80%;
+              min-width: 350px;
+            `}
+          >
+            {pageContext.description}
+          </p>
+        </div>
+        {layers}
       </div>
-      {layers}
       <Footer developers="Dustin Newman" copyrightYear={2019} />
     </div>
   )

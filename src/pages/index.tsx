@@ -91,12 +91,12 @@ const IndexPage = ({ data }) => {
                 font-size: 1.4rem;
               `}
             >
-              > Among the thousands affected by the fires were first-year
+              Among the thousands affected by the fires were first-year
               undeclared life sciences student Monica Campbell, from Paradise,
               California; first-year physiological sciences student Tyler Ray,
               from Malibu; second-year psychobiology student Angela Yu, from
-              Thousand Oaks, California; and Charlotte Lerchenmuller, a board
-              member of the Sal Castro Foundation. Campbell, Ray and Yu have
+              Thousand Oaks, California; and Charlotte Lerchenmuller, current
+              president of the Sal Castro Foundation. Campbell, Ray and Yu have
               been tasked with rebuilding, each in different ways. For each
               student, the task of rebuilding has been difficult. Campbell,
               having completely lost a home, Ray, within a few yards of losing a
@@ -129,7 +129,7 @@ const IndexPage = ({ data }) => {
             `}
           >
             <LocationCircle place={'Malibu'} />
-            <LocationCircle place={'Thousand Oaks & Calabasas'} />
+            <LocationCircle place={'Thousand Oaks'} />
             <LocationCircle place={'Paradise'} />
           </div>
         </div>

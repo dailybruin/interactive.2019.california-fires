@@ -62,7 +62,8 @@ export default class ImageLayer extends React.Component<
           min-height: 100vh;
           width: 100vw;
           text-align: center;
-          padding: ${TRANSITION_PADDING} auto;
+          padding-top: ${TRANSITION_PADDING}px;
+          padding-bottom: ${TRANSITION_PADDING}px;
         `}
       >
         <img
