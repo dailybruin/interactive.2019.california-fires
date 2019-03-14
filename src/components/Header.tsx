@@ -37,6 +37,9 @@ export default class Header extends React.Component<HeaderProps> {
           padding: 2em 2em;
           width: 100vw;
           z-index: 10000;
+          @media (max-width: 600px) {
+            justify-content: center;
+          }
         `}
       >
         <Link to="/">
@@ -45,6 +48,9 @@ export default class Header extends React.Component<HeaderProps> {
         <nav
           className={css`
             text-align: right;
+            @media (max-width: 600px) {
+              display: none;
+            }
           `}
         >
           <Link to="/place/Malibu" activeStyle={activeStyle}>
