@@ -22,7 +22,7 @@ export default class LocationCircle extends React.Component<
             align-items: center;
             width: 300px;
             height: 300px;
-            margin: 0 2em;
+            margin: 2em;
           `}
         >
           <p
