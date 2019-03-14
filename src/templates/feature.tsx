@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { Footer, Head } from '@dailybruin/lux'
+import { Footer, Head, Video } from '@dailybruin/lux'
 import { css } from 'react-emotion'
 import Header from '../components/Header'
 import CaptionLayer from '../components/CaptionLayer'
@@ -18,6 +18,7 @@ export const query = graphql`
     data: kerckhoffArticle(title: { eq: "data.aml" }) {
       features {
         title
+        credits
         description
         images {
           imageURL
@@ -37,16 +38,24 @@ const FeatureTemplate = ({ data, pageContext }) => {
     Head === undefined ||
     Footer == null ||
     !Footer ||
-    Footer === undefined
+    Footer === undefined ||
+    Video == null ||
+    !Video ||
+    Video === undefined
   ) {
     return null
   }
   const layers = pageContext.images.map((image, i) => (
     <>
       <CaptionLayer key={`${i}_CAPTION`} caption={image.caption} />
-      <ImageLayer key={`${i}_IMAGE`} imageURL={image.imageURL} />
+      {image.imageURL ? (
+        <ImageLayer key={`${i}_IMAGE`} imageURL={image.imageURL} />
+      ) : (
+        <Video videoId={image.videoId} />
+      )}
     </>
   ))
+  console.log(layers)
 
   return (
     <div
@@ -76,6 +85,19 @@ const FeatureTemplate = ({ data, pageContext }) => {
           >
             {pageContext.title}
           </h1>
+          <p
+            className={css`
+              font-size: 1.2rem;
+              margin: 0.7rem auto;
+              width: 80%;
+              min-width: 350px;
+            `}
+          >
+            {pageContext.credits == 'Kitty Hu'
+              ? 'VIDEO AND CAPTIONS BY'
+              : 'PHOTOS AND CAPTIONS BY'}{' '}
+            {pageContext.credits}
+          </p>
           <p
             className={css`
               font-size: 1.6rem;

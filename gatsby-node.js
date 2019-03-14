@@ -37,6 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
       {
         features(title: {eq: "${feature.title}"}) {
           title
+          credits
           description
           images {
             imageURL
@@ -51,6 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/feature.tsx`),
         context: {
           title: feature.title,
+          credits: feature.credits,
           description: feature.description,
           images: feature.images,
         },
