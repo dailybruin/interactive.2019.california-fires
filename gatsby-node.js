@@ -35,7 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
   data['data.aml'].features.forEach(feature => {
     return graphql(`
       {
-        feature(title: {eq: "${feature.title}"}) {
+        features(title: {eq: "${feature.title}"}) {
           title
           description
           images {

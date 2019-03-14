@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import FeatureCard from '../components/FeatureCard'
 
 export const query = graphql`
-  query IndexQuery {
+  query PlaceQuery {
     site {
       siteMetadata {
         siteName
@@ -14,23 +14,22 @@ export const query = graphql`
         url
       }
     }
-    data: kerckhoffArticle(title: { eq: "data.aml" }) {
-      places {
-        place
-        features {
-          name
-          blurb
-          imageURL
-        }
-      }
-    }
   }
 `
 
-export default ({ data, pageContext }) => {
-  console.log('PLACE PAGE')
-  console.log(data)
-  console.log(pageContext)
+const PlaceTemplate = ({ data, pageContext }) => {
+  if (
+    typeof window == 'undefined' ||
+    typeof document == 'undefined' ||
+    Head == null ||
+    !Head ||
+    Head === undefined ||
+    Footer == null ||
+    !Footer ||
+    Footer === undefined
+  ) {
+    return null
+  }
 
   const featureCards = pageContext.features.map((feature, i) => {
     return (
@@ -64,3 +63,5 @@ export default ({ data, pageContext }) => {
     </div>
   )
 }
+
+export default PlaceTemplate

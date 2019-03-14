@@ -12,7 +12,7 @@ const Stacked_h3 = ({ children }) => (
       font-size: 1.2rem;
       display: inline-block;
       font-weight: normal;
-      margin-left: 2em;
+      margin-right: 2rem;
     `}
   >
     {children}
@@ -31,15 +31,21 @@ export default class Header extends React.Component<HeaderProps> {
           align-items: center;
           position: sticky;
           top: 0px;
-          z-index: 1000;
+          left: 0px;
+          right: 0px;
           background: black;
           padding: 2em 0;
+          width: 100vw;
         `}
       >
         <Link to="/">
           <h2>{this.props.title}</h2>
         </Link>
-        <nav>
+        <nav
+          className={css`
+            text-align: right;
+          `}
+        >
           <Link to="/place/Malibu" activeStyle={activeStyle}>
             <Stacked_h3>Malibu</Stacked_h3>
           </Link>

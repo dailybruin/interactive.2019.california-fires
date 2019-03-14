@@ -1,9 +1,10 @@
 const slugify = require('slugify')
 
 const siteName = 'California Fires'
-const description = 'SITE_DESCRIPTION'
+const description =
+  'On Nov. 8, the sky over California was filled with ash. Two wildfires, the Camp Fire and the Woolsey Fire, had ignited within eight hours of each other, forcing evacuations in Butte, Los Angeles and Ventura counties.'
 const image =
-  'https://chancellor.ucla.edu/wp-content/uploads/2018/07/ChancellorBlock_1366x912_acf_cropped.jpg'
+  'https://assets.dailybruin.com/images/interactive.2019.california-fires/TYLER_RAY3-512b716bd96330b009edd6d663bff5f4.jpg'
 const year = '2019'
 
 const url = `https://features.dailybruin.com/${year}/${slugify(siteName)}`
@@ -49,12 +50,6 @@ module.exports = {
         trackingId: 'UA-28181852-23',
         head: false,
         anonymize: true,
-      },
-    },
-    {
-      resolve: 'gatsby-source-published-google-sheets',
-      options: {
-        sheetID: '1TJVrlFP0zPViE63jbPGZXGI1aixPwLYS6OdenLml76g',
       },
     },
   ],
