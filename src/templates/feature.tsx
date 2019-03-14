@@ -6,27 +6,27 @@ import Header from '../components/Header'
 import CaptionLayer from '../components/CaptionLayer'
 import ImageLayer from '../components/ImageLayer'
 
-// export const query = graphql`
-//   query FeatureQuery {
-//     site {
-//       siteMetadata {
-//         siteName
-//         description
-//         url
-//       }
-//     }
-//     data: kerckhoffArticle(title: { eq: "data.aml" }) {
-//       features {
-//         title
-//         description
-//         images {
-//           imageURL
-//           caption
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query FeatureQuery {
+    site {
+      siteMetadata {
+        siteName
+        description
+        url
+      }
+    }
+    data: kerckhoffArticle(title: { eq: "data.aml" }) {
+      features {
+        title
+        description
+        images {
+          imageURL
+          caption
+        }
+      }
+    }
+  }
+`
 const FeatureTemplate = ({ data, pageContext }) => {
   // create dictionary of all images for the ONE bilayer
   if (
